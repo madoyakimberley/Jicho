@@ -1,4 +1,4 @@
-# Jicho 👁️
+# Jicho
 
 Jicho is a Python-based project focused on collecting, processing, and documenting observations through automated data gathering workflows.
 
@@ -6,18 +6,27 @@ Jicho is a Python-based project focused on collecting, processing, and documenti
 
 ```text
 Jicho/
-├── jicho.py
-├── scraper.py
-├── jicho_observations.md
-└── __pycache__/
+├── main.py                   # Core Jicho OS, Terminal loop, and Dashboard UI
+├── scraper.py                # KenyaLawScraper stream extraction logic
+├── local_reports.csv         # Offline database for manually logged incidents
+├── jicho_observations.md     # Automated deep-dive markdown logs
+├── requirements.txt          # Project dependencies
+└── .gitignore                # Git exclusion rules (protects local data)
 ```
 
 ## ✨ Features
 
-- Automated data collection with Python
-- Observation logging and documentation
-- Modular scraper workflow
-- Lightweight and easy to extend
+- Humanitarian Dashboard: A multi-panel live view tracking Missing Persons, Preventive Actions, and Civic/Legislative impacts.
+
+- Proximity Tripwire: Smart alerting system that flags incidents occurring in a customizable "Home Zone" (e.g., Nairobi / Langata).
+
+- Source Verification: Automatically assigns trust badges based on known, verified reporting entities.
+
+- Manual Incident Logging: Built-in wizard to safely log offline, localized citizen reports.
+
+- Automated Truth Analysis: Scrapes, compiles, and formats deep-dive investigations on specific queries directly into Markdown reports.
+
+- Live Telemetry: Modular web scraper utilizing RSS streams to bypass heavy API limits.
 
 ## 🛠️ Tech Stack
 
@@ -30,32 +39,22 @@ Jicho/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/madoyakimberley/Jicho.git
+git clone https://github.com/madoyakimberley/Jicho
 cd Jicho
-```
-
-### Create a Virtual Environment
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-
-# Windows
-.venv\Scripts\activate
 ```
 
 ### Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+# Initialize uv environment and install dependencies (pandas, requests)
+uv venv
+uv pip install -r requirements.txt
 ```
-
-> If no requirements.txt exists yet, install the packages used by `scraper.py` manually.
 
 ### Run the Project
 
 ```bash
-python jicho.py
+uv run main.py
 ```
 
 ## 📖 Documentation

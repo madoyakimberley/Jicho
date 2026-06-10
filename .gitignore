@@ -54,3 +54,7 @@ Thumbs.db
 # Temporary files
 tmp/
 temp/
+
+# Local Jicho Data Files
+jicho_observations.md
+local_reports.csv
